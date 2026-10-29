@@ -50,10 +50,10 @@ export default function Navigation({
       {/* Desktop Sidebar */}
       <aside className="sidebar">
         <div className="sidebar-brand">
-          <div className="sidebar-logo">A</div>
+          <div className="sidebar-logo" style={{ background: '#1e40af', fontWeight: 800 }}>AI</div>
           <div>
-            <div className="sidebar-title">TradeCRM</div>
-            <div className="sidebar-subtitle">Aggarwal Industrial</div>
+            <div className="sidebar-title">Aggarwal Industries</div>
+            <div className="sidebar-subtitle">ASTER • Springs & Washers</div>
           </div>
         </div>
 
@@ -81,7 +81,7 @@ export default function Navigation({
             <span>Google Sheets Mirrored</span>
           </div>
           <div style={{ marginTop: '4px', fontSize: '11px', color: '#64748b' }}>
-            Zero-Cost 24/7 Web Engine
+            Faridabad Plant • ISO Certified
           </div>
         </div>
       </aside>

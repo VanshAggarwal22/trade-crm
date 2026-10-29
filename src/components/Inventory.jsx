@@ -23,9 +23,9 @@ export default function Inventory({ showToast }) {
   const [editingProduct, setEditingProduct] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
-    category: 'Steel Plates',
-    hsn: '7208',
-    unit: 'Kg',
+    category: 'Precision Springs',
+    hsn: '7320',
+    unit: 'Pcs',
     costPrice: '',
     sellPrice: '',
     gstPercent: 18,
@@ -42,9 +42,9 @@ export default function Inventory({ showToast }) {
     setEditingProduct(null);
     setFormData({
       name: '',
-      category: 'Steel Plates',
-      hsn: '7208',
-      unit: 'Kg',
+      category: 'Precision Springs',
+      hsn: '7320',
+      unit: 'Pcs',
       costPrice: '',
       sellPrice: '',
       gstPercent: 18,
@@ -281,7 +281,7 @@ export default function Inventory({ showToast }) {
                   <input 
                     type="text" 
                     className="form-control" 
-                    placeholder="e.g. MS Plate 8mm IS 2062 E250"
+                    placeholder="e.g. Compression Spring 4.0mm OD 28mm (Spring Steel Gr. 2)"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
@@ -294,7 +294,7 @@ export default function Inventory({ showToast }) {
                     <input 
                       type="text" 
                       className="form-control" 
-                      placeholder="e.g. Steel Plates, Fasteners, Pipes"
+                      placeholder="e.g. Precision Springs, Spring Washers, Railway Parts"
                       value={formData.category}
                       onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                     />
@@ -304,7 +304,7 @@ export default function Inventory({ showToast }) {
                     <input 
                       type="text" 
                       className="form-control" 
-                      placeholder="e.g. 7208"
+                      placeholder="e.g. 7320 (Springs) or 7318 (Washers)"
                       value={formData.hsn}
                       onChange={(e) => setFormData({ ...formData, hsn: e.target.value })}
                     />

@@ -272,7 +272,7 @@ export default function Dashboard({ setActiveTab, onNewLead, onNewQuote }) {
                             title="Chat on WhatsApp"
                             onClick={() => openWhatsApp(
                               lead.phone, 
-                              `Namaste ${lead.contact} ji, following up on your enquiry for ${lead.productInterest} with Aggarwal Industrial Supplies. Please let us know if you need any adjustments in the quote!`
+                              `Namaste ${lead.contact} ji, following up on your enquiry for ${lead.productInterest} with Aggarwal Industries (ASTER). Please let us know if you need any adjustments in the quote!`
                             )}
                           >
                             <MessageCircle size={14} />

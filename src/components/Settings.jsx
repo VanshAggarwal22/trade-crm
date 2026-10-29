@@ -98,24 +98,46 @@ export default function Settings({ showToast }) {
             <Building2 size={20} color="#2563eb" /> Business & Quotation Header Details
           </h3>
           <form onSubmit={handleSaveProfile}>
-            <div className="form-group" style={{ marginBottom: '12px' }}>
-              <label className="form-label">Company / Firm Name *</label>
-              <input 
-                type="text" 
-                className="form-control" 
-                required
-                value={settings.companyName || ''}
-                onChange={(e) => setSettings({ ...settings, companyName: e.target.value })}
-              />
+            <div className="form-row" style={{ marginBottom: '12px' }}>
+              <div className="form-group">
+                <label className="form-label">Company / Firm Name *</label>
+                <input 
+                  type="text" 
+                  className="form-control" 
+                  required
+                  value={settings.companyName || ''}
+                  onChange={(e) => setSettings({ ...settings, companyName: e.target.value })}
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Brand / Trade Name</label>
+                <input 
+                  type="text" 
+                  className="form-control" 
+                  placeholder="ASTER"
+                  value={settings.brandName || 'ASTER'}
+                  onChange={(e) => setSettings({ ...settings, brandName: e.target.value })}
+                />
+              </div>
             </div>
 
             <div className="form-group" style={{ marginBottom: '12px' }}>
-              <label className="form-label">Registered Office / Godown Address</label>
+              <label className="form-label">Registered Office Address</label>
               <input 
                 type="text" 
                 className="form-control" 
                 value={settings.address || ''}
                 onChange={(e) => setSettings({ ...settings, address: e.target.value })}
+              />
+            </div>
+
+            <div className="form-group" style={{ marginBottom: '12px' }}>
+              <label className="form-label">Manufacturing Plant Address</label>
+              <input 
+                type="text" 
+                className="form-control" 
+                value={settings.plantAddress || '42km Stone, Delhi-Mathura Road, Sikri, Faridabad - 121004 (HR.)'}
+                onChange={(e) => setSettings({ ...settings, plantAddress: e.target.value })}
               />
             </div>
 
@@ -133,7 +155,7 @@ export default function Settings({ showToast }) {
                 <label className="form-label">Home State (for Tax Auto-Split)</label>
                 <select 
                   className="form-control"
-                  value={settings.state || 'Maharashtra'}
+                  value={settings.state || 'Haryana'}
                   onChange={(e) => setSettings({ ...settings, state: e.target.value })}
                 >
                   {INDIAN_STATES.map(st => (
@@ -162,6 +184,16 @@ export default function Settings({ showToast }) {
                   onChange={(e) => setSettings({ ...settings, email: e.target.value })}
                 />
               </div>
+            </div>
+
+            <div className="form-group" style={{ marginBottom: '12px' }}>
+              <label className="form-label">Official Website</label>
+              <input 
+                type="text" 
+                className="form-control" 
+                value={settings.website || 'https://www.aggarwalindustries.com'}
+                onChange={(e) => setSettings({ ...settings, website: e.target.value })}
+              />
             </div>
 
             <h4 style={{ fontSize: '13px', textTransform: 'uppercase', color: '#64748b', marginTop: '16px', marginBottom: '8px' }}>

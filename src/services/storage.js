@@ -17,24 +17,29 @@ const STORAGE_KEYS = {
 };
 
 const DEFAULT_SETTINGS = {
-  companyName: 'Aggarwal Industrial Supplies & Trading',
-  address: 'Plot 45, Phase-II, Industrial Area, Mumbai',
-  state: 'Maharashtra',
-  gstin: '27AAACA1234A1Z5',
-  phone: '+91 98765 43210',
-  email: 'sales@aggarwal-industries.com',
+  companyName: 'Aggarwal Industries',
+  brandName: 'ASTER',
+  tagline: 'Precision. Innovation. Excellence.',
+  legacy: '30+ Years Experience (Gurudev Springs Pvt. Ltd.)',
+  address: 'Office: A-3, 22/1, Delhi-Mathura Road, Ballabgarh, Faridabad - 121004 (HR.)',
+  plantAddress: 'Plant: 42km Stone, Delhi-Mathura Road, Sikri, Faridabad - 121004 (HR.)',
+  state: 'Haryana',
+  gstin: '06AAACA1234A1Z5',
+  phone: '+91 9811280333',
+  email: 'ashutosh@aggarwalindustries.com',
+  website: 'https://www.aggarwalindustries.com',
   bankName: 'HDFC Bank Ltd',
   accountNumber: '50200012345678',
   ifsc: 'HDFC0001234',
   quotePrefix: 'QT',
   defaultValidityDays: 15,
   sheetId: '1T0y1ovU55n8DL1f4hJWq2Zt-nxl1wWxeHcHZJExt0wc',
-  gasSyncUrl: 'https://script.google.com/macros/s/AKfycbyxMxyUZ8qry4g-cib3NQE6gTbetO1xERMmhxjYUHLzPdVNfwHQIfJOzEUfgBtbF9qQ5Q/exec',
+  gasSyncUrl: 'https://script.google.com/macros/s/AKfycbyfqkS8hRiRPEv1IfvngVyS92uo2FhDlnBGFmyAHTgTNUuTpefMk9pct03D6O9aAypN7A/exec',
   geminiApiKey: ''
 };
 
 // Purge old mock data from browser localStorage on upgrade
-const PURGE_KEY = 'crm_mock_purged_v4';
+const PURGE_KEY = 'crm_mock_purged_v5';
 if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
   if (localStorage.getItem(PURGE_KEY) !== 'true') {
     Object.values(STORAGE_KEYS).forEach(k => {

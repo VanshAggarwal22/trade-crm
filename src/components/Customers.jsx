@@ -191,7 +191,7 @@ export default function Customers({ showToast }) {
 
   const openWhatsApp = (phone, name) => {
     const clean = (phone || '').replace(/[^0-9]/g, '');
-    window.open(`https://wa.me/${clean}?text=${encodeURIComponent(`Namaste ${name} ji, Aggarwal Industrial Supplies here.`)}`, '_blank');
+    window.open(`https://wa.me/${clean}?text=${encodeURIComponent(`Namaste ${name} ji, Aggarwal Industries (ASTER) here.`)}`, '_blank');
   };
 
   const filteredCustomers = customers.filter(c => {

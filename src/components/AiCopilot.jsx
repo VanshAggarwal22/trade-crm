@@ -65,16 +65,16 @@ export default function AiCopilot({ showToast }) {
     let promptText = '';
 
     if (selectedTask === 'whatsapp_followup') {
-      promptText = `You are a sales manager at ${settings.companyName}, an Indian industrial trading firm.
+      promptText = `You are a sales manager at Aggarwal Industries (Brand: ASTER), specialized manufacturers of precision springs (0.2 - 18mm), spring washers (DIN 127B / IS 3063), and railway parts with 30+ years manufacturing experience (Gurudev Springs legacy).
 Draft a short, persuasive WhatsApp message to ${targetLead.contact} at ${targetLead.company}.
 Context:
 - Material Enquiry: ${targetLead.productInterest} (Qty: ${targetLead.quantity || 'as requested'})
 - Estimated Quote: ₹${Number(targetLead.estimatedValue || targetQuote.total || 100000).toLocaleString('en-IN')}
 - Notes: ${customNotes || 'Client was comparing market rates'}.
 
-Tone: Respectful Indian business etiquette, concise (under 80 words), asking if any clarification is needed on specifications or delivery schedule.`;
+Tone: Respectful Indian business etiquette, concise (under 80 words), highlighting certified quality, custom drawing precision, and asking if any clarification is needed on specifications or delivery schedule.`;
     } else if (selectedTask === 'payment_reminder') {
-      promptText = `You are the finance/accounts manager at ${settings.companyName}.
+      promptText = `You are the finance/accounts manager at Aggarwal Industries (ASTER).
 Draft a professional WhatsApp payment reminder for ${targetLead.company} (Contact: ${targetLead.contact}).
 Context:
 - Outstanding Balance: ₹${Number(targetQuote.total || 85000).toLocaleString('en-IN')}
@@ -83,12 +83,12 @@ Context:
 
 Tone: Courteous but firm, requesting immediate RTGS/NEFT transaction UTR.`;
     } else if (selectedTask === 'negotiation_defense') {
-      promptText = `You are a commercial negotiator at ${settings.companyName}.
+      promptText = `You are a commercial negotiator at Aggarwal Industries (ASTER).
 Draft a counter-offer/defense message to ${targetLead.contact} at ${targetLead.company} who is asking for an aggressive 5-8% discount on ${targetLead.productInterest}.
 Context:
-- Quoted Rate: Based on prime test-certified material IS 2062 / SS 304.
-- Margin Defence: Mention raw material steel price volatility, certified quality with MTC, ready stock ex-warehouse.
-- Compromise Offer: Offer free delivery or 1.5% cash discount against immediate advance RTGS.`;
+- Manufacturing Quality: Precision engineered springs / washers conforming to DIN 127 B / IS 3063, backed by 30+ years engineering legacy.
+- Margin Defence: High-tensile spring steel wire grades, strict heat treatment, 100% load-tested quality, prompt dispatch from Faridabad plant.
+- Compromise Offer: Offer free delivery or 1.5% cash discount against immediate advance RTGS settlement.`;
     } else {
       promptText = `You are a business operations advisor. Analyze the current CRM status:
 - Active Leads: ${leads.length}

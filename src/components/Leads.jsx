@@ -188,7 +188,7 @@ export default function Leads({ onConvertToQuote, onConvertToCustomer, showToast
 
   const openWhatsApp = (phone, name, product) => {
     const cleanPhone = (phone || '').replace(/[^0-9]/g, '');
-    const text = `Namaste ${name} ji, Aggarwal Industrial Supplies here regarding your requirement for ${product || 'industrial materials'}. Let me know if you would like us to share our best rate quotation!`;
+    const text = `Namaste ${name} ji, Aggarwal Industries (ASTER) here regarding your requirement for ${product || 'custom springs / washers'}. Let me know if you would like us to share our best rate quotation!`;
     window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(text)}`, '_blank');
   };
 
@@ -524,7 +524,7 @@ export default function Leads({ onConvertToQuote, onConvertToCustomer, showToast
                       className="form-control" 
                       value={formData.productInterest}
                       onChange={(e) => setFormData({ ...formData, productInterest: e.target.value })}
-                      placeholder="e.g. MS Plates 6mm, Hex Bolts M16"
+                      placeholder="e.g. Compression Springs 3.5mm, DIN 127B Washers, Railway Parts"
                     />
                   </div>
                   <div className="form-group">

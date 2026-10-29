@@ -57,7 +57,7 @@ export default function Quotes({ prefillData, onConvertToOrder, showToast }) {
       const matchedCust = freshCust.find(c => c.phone && c.phone === prefill.phone);
       setQuoteCustomer(matchedCust ? matchedCust.id : (freshCust[0]?.id || ''));
       setLineItems([
-        { sku: '', name: prefill.productInterest || 'Industrial Materials', hsn: '7208', qty: 100, unit: 'Kg', rate: 70, gstPct: 18 }
+        { sku: '', name: prefill.productInterest || 'Compression Springs (0.20mm - 18mm)', hsn: '7320', qty: 1000, unit: 'Pcs', rate: 25, gstPct: 18 }
       ]);
     } else {
       setQuoteLeadId('');
@@ -66,11 +66,11 @@ export default function Quotes({ prefillData, onConvertToOrder, showToast }) {
       setLineItems([
         { 
           sku: defaultProd ? defaultProd.sku : '', 
-          name: defaultProd ? defaultProd.name : 'MS Plate 6mm', 
-          hsn: defaultProd ? defaultProd.hsn : '7208', 
-          qty: 100, 
-          unit: defaultProd ? defaultProd.unit : 'Kg', 
-          rate: defaultProd ? defaultProd.sellPrice : 72, 
+          name: defaultProd ? defaultProd.name : 'Compression Springs (Grade 2 Spring Steel)', 
+          hsn: defaultProd ? defaultProd.hsn : '7320', 
+          qty: 1000, 
+          unit: defaultProd ? defaultProd.unit : 'Pcs', 
+          rate: defaultProd ? defaultProd.sellPrice : 25, 
           gstPct: defaultProd ? defaultProd.gstPercent : 18 
         }
       ]);

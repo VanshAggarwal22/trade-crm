@@ -224,10 +224,12 @@ export function generateQuotePrint(quote, settings) {
           <table class="header-table">
             <tr>
               <td style="vertical-align: top;">
-                <div class="company-name">${settings.companyName || 'Industrial Supplies & Trading'}</div>
-                <div style="color:#64748b;margin-top:4px;">${settings.address || 'Industrial Area'}</div>
-                <div><strong>GSTIN:</strong> ${settings.gstin || '27AAACA0000A1Z5'} | <strong>State:</strong> ${settings.state || 'Maharashtra'}</div>
-                <div><strong>Phone:</strong> ${settings.phone || '-'} | <strong>Email:</strong> ${settings.email || '-'}</div>
+                <div class="company-name">${settings.companyName || 'Aggarwal Industries'} <span style="font-size:14px;color:#2563eb;font-weight:700;margin-left:6px;">[ASTER]</span></div>
+                <div style="color:#0f172a;font-weight:600;font-size:12px;margin-top:2px;">Precision Springs (0.2 - 18mm) • Spring Washers (DIN 127B / IS 3063) • Railway Parts</div>
+                <div style="color:#64748b;margin-top:4px;font-size:11.5px;">${settings.address || 'Office: A-3, 22/1, Delhi-Mathura Road, Ballabgarh, Faridabad - 121004 (HR.)'}</div>
+                <div style="color:#64748b;font-size:11.5px;">Plant: 42km Stone, Delhi-Mathura Road, Sikri, Faridabad - 121004 (HR.)</div>
+                <div style="font-size:12px;margin-top:2px;"><strong>GSTIN:</strong> ${settings.gstin || '06AAACA1234A1Z5'} | <strong>State:</strong> ${settings.state || 'Haryana'}</div>
+                <div style="font-size:12px;"><strong>Phone:</strong> ${settings.phone || '+91 9811280333'} | <strong>Email:</strong> ${settings.email || 'ashutosh@aggarwalindustries.com'} | <strong>Web:</strong> www.aggarwalindustries.com</div>
               </td>
               <td style="text-align: right; vertical-align: top;">
                 <div class="badge-quote">COMMERCIAL QUOTATION</div>
@@ -284,7 +286,7 @@ export function generateQuotePrint(quote, settings) {
             <div class="bank-details">
               <h4>Direct Bank Transfer Details</h4>
               <div><strong>Bank:</strong> ${settings.bankName || 'HDFC Bank Ltd'}</div>
-              <div><strong>A/C Name:</strong> ${settings.companyName || 'Aggarwal Industrial Supplies'}</div>
+              <div><strong>A/C Name:</strong> ${settings.companyName || 'Aggarwal Industries'}</div>
               <div><strong>A/C No:</strong> <span style="font-family:monospace;font-size:14px;font-weight:700;">${settings.accountNumber || '50200012345678'}</span></div>
               <div><strong>IFSC Code:</strong> <span style="font-family:monospace;font-weight:700;">${settings.ifsc || 'HDFC0001234'}</span></div>
               <div style="margin-top:6px;font-size:11px;color:#64748b;">Please mention Quote/Invoice reference during RTGS / NEFT transfer.</div>
@@ -321,8 +323,8 @@ export function generateQuotePrint(quote, settings) {
             <strong>Standard Terms & Conditions:</strong><br>
             1. All prices quoted are valid until <strong>${quote.validTill || '15 days from issue date'}</strong>.<br>
             2. Taxes will be charged extra at applicable rates at the time of final dispatch/invoicing.<br>
-            3. Goods once dispatched will be accompanied by standard MTC (Mill Test Certificate) on request.<br>
-            4. Subject to local jurisdiction only.
+            3. Springs & washers are manufactured strictly as per approved drawings / DIN 127 B / IS 3063 and accompanied by Inspection/Test Reports.<br>
+            4. Subject to Faridabad (Haryana) jurisdiction only.
           </div>
 
           <div class="footer-sign">
