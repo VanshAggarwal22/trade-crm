@@ -10,6 +10,7 @@ import {
   MessageCircle, 
   CheckCircle2, 
   ArrowRight,
+  ArrowUpRight,
   Plus
 } from 'lucide-react';
 import { StorageService } from '../services/storage';
@@ -19,11 +20,15 @@ export default function Dashboard({ setActiveTab, onNewLead, onNewQuote }) {
   const quotes = StorageService.get(StorageService.KEYS.QUOTES);
   const orders = StorageService.get(StorageService.KEYS.ORDERS);
   const customers = StorageService.get(StorageService.KEYS.CUSTOMERS);
+  const outwardPayments = StorageService.get(StorageService.KEYS.OUTWARD_PAYMENTS) || [];
   console.log('[Dashboard Render] leads count:', leads.length, 'quotes count:', quotes.length);
 
   // Compute metrics
   const activePipelineLeads = leads.filter(l => !['Won', 'Lost'].includes(l.stage));
   const pipelineValue = activePipelineLeads.reduce((acc, l) => acc + (Number(l.estimatedValue) || 0), 0);
+
+  // Outward Payouts
+  const totalOutwardPaid = outwardPayments.reduce((acc, p) => acc + (Number(p.amount) || 0), 0);
 
   // Follow-ups due
   const today = new Date();
@@ -163,6 +168,21 @@ export default function Dashboard({ setActiveTab, onNewLead, onNewQuote }) {
           </div>
           <div className="stat-subtext">
             <span>{unpaidOrders.length} unpaid orders</span>
+          </div>
+        </div>
+
+        <div className="stat-card">
+          <div className="stat-header">
+            <span>Outward Payouts</span>
+            <div className="stat-icon" style={{ background: '#fff7ed', color: '#ea580c' }}>
+              <ArrowUpRight size={18} />
+            </div>
+          </div>
+          <div className="stat-value" style={{ color: '#ea580c' }}>
+            {formatLakhs(totalOutwardPaid)}
+          </div>
+          <div className="stat-subtext">
+            <span>{outwardPayments.length} vendor settlements</span>
           </div>
         </div>
       </div>

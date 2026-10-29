@@ -11,6 +11,7 @@ const STORAGE_KEYS = {
   QUOTES: 'crm_quotes',
   ORDERS: 'crm_orders',
   PAYMENTS: 'crm_payments',
+  OUTWARD_PAYMENTS: 'crm_outward_payments',
   INTERACTIONS: 'crm_interactions',
   SETTINGS: 'crm_settings'
 };

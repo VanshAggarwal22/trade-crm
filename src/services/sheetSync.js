@@ -341,6 +341,23 @@ export const SheetSyncService = {
         }
         StorageService.save(StorageService.KEYS.PAYMENTS, normalizedPayments);
 
+        // 8. Outward Payments (Vendor & Expense Payouts)
+        let normalizedOutwardPayments = [];
+        if (json.outwardPayments && Array.isArray(json.outwardPayments) && json.outwardPayments.length > 0) {
+          normalizedOutwardPayments = json.outwardPayments.filter(p => p.id || p.PaymentID || p.payee || p.Payee).map(p => ({
+            id: p.id || p.PaymentID,
+            date: p.date || p.Date || '2026-08-25',
+            payee: p.payee || p.Payee || p.vendorName || p.VendorName || 'Vendor',
+            vendorId: p.vendorId || p.VendorID || '',
+            category: p.category || p.Category || 'Raw Material Purchase',
+            amount: Number(p.amount !== undefined ? p.amount : (p.Amount !== undefined ? p.Amount : 0)),
+            mode: p.mode || p.Mode || 'Bank Transfer (RTGS)',
+            reference: p.reference || p.Reference || '',
+            notes: p.notes || p.Notes || ''
+          }));
+        }
+        StorageService.save(StorageService.KEYS.OUTWARD_PAYMENTS, normalizedOutwardPayments);
+
         return { success: true };
       }
       return { success: false, error: json.error || 'Failed to fetch from Google Sheets' };
