@@ -129,7 +129,7 @@ export const SheetSyncService = {
 
         // 2. Orders (Maruti Suzuki, Bajaj Auto, Sundram Fasteners)
         const rawOrders = json.orders || [];
-        const normalizedOrders = rawOrders.filter(o => o.id || o.OrderID || o.customer || o.Customer).map(o => {
+        let normalizedOrders = rawOrders.filter(o => o.id || o.OrderID || o.customer || o.Customer).map(o => {
           let items = [];
           try {
             items = typeof o.Items === 'string' ? JSON.parse(o.Items) : (o.Items || o.items || []);
@@ -339,6 +339,28 @@ export const SheetSyncService = {
             });
           });
         }
+
+        // Cross-reconcile order amountPaid & paymentStatus with payments ledger
+        const paymentsByOrder = new Map();
+        normalizedPayments.forEach(p => {
+          if (p.orderId) {
+            const cur = paymentsByOrder.get(p.orderId) || 0;
+            paymentsByOrder.set(p.orderId, cur + (Number(p.amount) || 0));
+          }
+        });
+
+        normalizedOrders = normalizedOrders.map(ord => {
+          const recordedPaid = paymentsByOrder.get(ord.id) || 0;
+          const currentPaid = Math.max(ord.amountPaid || 0, recordedPaid);
+          const isFullyPaid = currentPaid >= ord.total && ord.total > 0;
+          const isPartial = currentPaid > 0 && currentPaid < ord.total;
+          return {
+            ...ord,
+            amountPaid: currentPaid,
+            paymentStatus: isFullyPaid ? 'Paid' : (isPartial ? 'Partial' : ord.paymentStatus)
+          };
+        });
+        StorageService.save(StorageService.KEYS.ORDERS, normalizedOrders);
         StorageService.save(StorageService.KEYS.PAYMENTS, normalizedPayments);
 
         // 8. Outward Payments (Vendor & Expense Payouts)
