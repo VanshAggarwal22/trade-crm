@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-const GAS_URL = 'https://script.google.com/macros/s/AKfycbzqS_l4VU_8UaYsAJF87fay1-Txw1EE2X4bUB3FkRknk_iKgiF14voovfk8AcnIFflz6Q/exec';
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbxoAGWLdT8BZZ3KWvwOg_-hryxz5Q1r2jdwALYuZUXTmKAjaUtKZkl6nQAaCZFy471L/exec';
 
 function sheetsProxyPlugin() {
   return {
